@@ -1,0 +1,25 @@
+<div>
+ <h1>List of the projects </h1>
+ <table class="table">
+  <thead>
+   <th>Id of the task</th>
+   <th>Name of the task</th>
+   <th>Project for the task</th>
+   <th>Term of the task</th>
+   <th>State of the task</th>
+   <th>Edit task</th>
+   <th>Task fullfiled</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="task in tasks | filter: searchText">
+      <td>{{task._id}}</td>
+      <td>{{task.name}}</td>
+      <td>{{task.projectName}}</td>
+      <td>{{task.term}}</td>
+      <td>{{task.state}}</td>
+      <td><button edit-task="{{task._id}}" task-modal-unique class="btn">Edit task</button></td>
+      <td><button task-done class="btn">Fullfil the task</button></td>
+    </tr>
+  </tbody>
+ </table>
+</div>

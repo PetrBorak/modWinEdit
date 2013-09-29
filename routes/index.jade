@@ -1,0 +1,79 @@
+extend layout
+
+block content
+          script(type="text/javascript")
+            $(document).ready(function(){
+              var nofslides = $("#slideshow ul li").length;
+              console.log(nofslides);
+              var lengthos = nofslides * 1200;
+              $("#slideshow ul").css({"width":lengthos+"px"});
+              var counter = 0;
+              function slider(){
+              if((counter + 1) >= nofslides){
+              counter = 0;
+              $("#slideshow ul").animate({"left":"0px"},1000,function(){
+              tos = setTimeout(function(){slider();},10000);
+              });
+              }else{
+              counter++;
+              var toleft = (counter * 1200)*(-1);
+              $("#slideshow ul").animate({"left":toleft+"px"},1000,function(){
+              tos = setTimeout(function(){slider();},10000);
+              });
+              
+              }
+              
+              }
+              var tos = setTimeout(function(){
+              slider();
+              },10000)
+            });
+          
+           #slideshow
+            ul
+              li
+                h1 Convenient offer for everybody.
+                img(src="/images/slideshowImg.png")
+                #content I offer creation of professional web presentation at favorable price. My work always include graphical layout, consultations of requirements of customer's individual needs and consultations of requirements for CMS, which can based either on server-side javascript or on CAKE PHP framework. The service provided also includes registration of domains and hosting services in professional data centres. 
+                a(href="/underConstruction", id="findOutMore")  Find out more
+              li
+                h1 Calipso CMS.
+                img(src="/images/slide02.png")
+                #content Recently I am very interested in Node.js and everything this server site technology based on Google's V8 offers. So that is the reason I hereby offer You creation of simple web presentation based on relevant technologies, namely Calipso CMS. In the course of time it will be a concrete offer including pricing under the "find out more button". Just be patient, please.
+                a(href="/underConstruction", id="findOutMore")  Find out more
+              li
+                h1 Illustration's are my hobby.
+                img(src="/images/slide03.png")
+                #content I take it mostly relaxing to create any kind of illustration or only tinkering some graphics just like that. It's only me and my favorite Wacom Intuos5 M PTK-650-EN. Do you have some nice picture in your mind, which should come into world, whatever the reason is? Do not hesitate to contact me. 
+                a(href="/underConstruction", id="findOutMore")  Find out more                  
+           #underSlideshow
+            #webdesignUS
+              h2 Webdesign
+              .but
+                a(href="/activities/web") find out more
+            #dtpUS
+              h2 DTP
+              .but
+                a(href="/activities/dtp") find out more
+            #grafikaUS
+              h2 Graphics
+              .but            
+                a(href="/activities/graphics") find out more
+           #main
+            #left
+              .article
+                h2 #{aboutMe.headline}
+                p!= aboutMe.content
+                
+              .article
+                h2 From the blog - #{blog.header}                
+                div !{blog.perex}
+                a.allBlogIndex(href="/blog") All articles
+                a.moreBlogIndex(href="/blogarticle/articles/"+blog._id) More of this
+                div.clearfix
+            #right
+              h2 Feedback
+              div.buble Regarding cooperation with Petr, I must admit, he is a professional webdesigner. He is very flexible in working with each my idea. At first I had not had a concrete idea. All the same, he perfectly designed  my  eshop. His reactions are quick with pleasant attitude.
+                p#titleOneFb Michal Stastny
+                  a(href="http://www.chytrykup.cz")&nbsp;Chytrykup.cz
+                       

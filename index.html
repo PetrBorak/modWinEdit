@@ -1,0 +1,36 @@
+<html>
+  <!DOCTYPE html>
+  <head>
+    <script data-main="app/js/main.js" rel="javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.min.js"></script>
+    <link rel="stylesheet" href="app/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  </head>
+  <body datataskmodal>
+  <add-task-modal></add-task-modal>
+  
+  <div class="container">
+    <div class="masthead">
+      <h3 class="muted">Task manager</h3>
+    </div>
+    <form class="form-search">
+    Search: <input class="input-mediu search-query" ng-model="searchText">
+    </form>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav">
+            <li class="{active:tasks}">
+              <a href="/#/">Tasks</a>
+            </li>
+            <li class="{active:projects}">
+              <a href="/#/projects">Projects</a>
+            </li>            
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div ng-view>
+    </div>
+  </div>
+  </body>
+</html>

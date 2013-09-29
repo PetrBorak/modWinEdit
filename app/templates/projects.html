@@ -1,0 +1,18 @@
+<div>
+ <h1>List of the projects </h1>
+ <table class="table">
+  <thead>
+   <th>Id of project</th>
+   <th>Name of the project</th>
+   <th>Add task to the project</th>
+  </thead>
+  <tbody>
+  
+    <tr ng-repeat="project in projectData | filter: searchText">
+      <td>{{project._id}}</id>
+      <td>{{project.name}}</td>
+      <td><button edit-task="false" task-modal-unique project-name="{{project.name}}" project-id="{{project._id}}" class="btn">Add task</button></td>
+    </tr>
+  </tbody>
+ </table>
+</div>

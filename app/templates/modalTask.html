@@ -1,0 +1,40 @@
+<div class="modal hide fade" role="dialog" aria-hidden="true" labelleby="modalLabel">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="modalLabel">Please fill in the form</h3>
+  </div>
+  <div class="modal-body">
+    <form name="form" name="form" novalidate>
+    
+      <input type="hidden" name="projectId" ng-model="taskFormData.projectId" value="{{taskFormData.projectId}}">      
+      <p ng-show="addToProject">
+       Project name: {{projectName}}
+      </p>
+      
+      
+      <label>Task Name</label>
+      <input type="text" name="taskName" ng-model="taskFormData.taskName" placeholder="Task name" value="taskName" required>
+      <p class="text-warning" ng-show="form.taskName.$error.required">
+       This field is obligatory
+      </p>
+      
+
+      <label>Task Term</label>
+      <input type="text" name="taskTerm" ng-model="taskFormData.taskTerm" placeholder="Task term" datepicker required>
+      <p class="text-warning" ng-show="form.taskTerm.$error.required">
+       This field is obligatory
+      </p>
+      
+      <label>Task State</label>
+      <select name="termState" ng-model="taskFormData.state.name">
+        <option ng-repeat="state in taskFormData.states">{{state.name}}</option>
+      </select>
+      
+    </form>
+  </div> 
+  <div class="modal-footer">
+   <button class="btn btn-primary" new-task="addToProject" ng-click="addProject()" btn-primary" data-dismiss="modal" aria-hidden="true">Save the task</button>
+   <button ng-click="removeTask()" ng-show="!addToProject" class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Remove task</button>
+   <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>   
+</div>

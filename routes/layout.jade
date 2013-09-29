@@ -1,0 +1,124 @@
+doctype 5
+html
+  head
+    title= title
+    meta(name="description", content="javascript and related themes")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-1.10.1.min.js')
+    link(rel="icon",type="image/png",href="http://borakpetr/images/favicon.png")
+    link(href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaUlEQVQ4T2NkoBAw7tSX+U+JGYw7KDVgO5IBHhceM9yZ0Q/EfXBHmc1ZxSBkYsmww0AWq0MZtyIZ4AU04DbQgNtIBpgDDRAGGrANlwFb9KXhYeB94QnD2zPHwTb9/vwRbJhWaQPYgK0GMgx86toMEo7uDN+ePWF4smkVWB3jJiQDfIEGgADIEJCmb88eM3wHKgaxD4a7M1jNWQ2WP5YSyvDp5lWIARuRDPADGnBv6RyGK90NDIZNfQyyfmFAl3xiYOXlA9MwzR+hmsEGbDBAeMH//BOGmzP7GG4Aw0Ajo4hBPb0II+B2e0NcBgOM65AMCAQacAfoghtAQ5xW7GTgkpIFKwbRJ4pSGCz65jC8AXrvcGoowoC1SAYEAQ1ABiDD+IEBJwoMg3WGMgx6JQ0MKtEpYMOe7d8BCQNkA0A2SQFDGeTnjzevgRWBDGAD8l8DbQaJCwD5v4DhAQsHFAPISdKDwABynI2sBwDCmJzNLZfSFAAAAABJRU5ErkJggg==", rel="icon", type="image/x-icon")
+      
+      
+    script(type='text/javascript', src='/ckeditor/ckeditor.js')
+    script(type='text/javascript') 
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+        ga('create', 'UA-42618087-1', 'borakpetr.cz');
+        ga('send', 'pageview');
+       
+    
+  body(ng-app="main")                                              
+    #container
+      h1(style="padding: 20px 0; width: 1197px; margin: 0 auto; background-color: grey; color:rgb(180,180,180)") I am working with the server currently. I apologize for possible inconvenience.
+      #contIn
+        div#header
+            a#backtoMainPage(alt='back to Petr Borák main page', href="http://www.borakpetr.cz")
+             h1 Petr Borák, webdevelopement, graphics, javascript.
+            #ls
+
+              #logIn
+                - if(logged)
+                    form(action="/session", method="POST")
+                      input(type="hidden", name="_method", value="delete")
+                      input#logOut(type="submit", value="Log out")
+                - else
+                    a(href="/session/new") Log In  
+              #language
+                a#englishHref(href=englishHref) English
+                a#czechHref(href=czechHref) Czech                              
+              #searchbox
+                form(action="/search", method="get")
+                  input#searchBox(type="text", name="search", value="")
+                  input#submitSearch(type="submit", value="") 
+              
+                                
+
+                
+            #mainMenu
+              ul
+                li
+                  -if(actualSite == "index") 
+                    a(href="/", class="actual") about me
+                  -else
+                    a(href="/")   about me
+                li
+                  -if(actualSite == "portfolio")  
+                    a(href="/portfolio/webdesign/", class="actual") portfolio
+                  -else
+                    a(href="/portfolio/webdesign/") portfolio
+                  
+                li
+                  -if(actualSite == "blog")  
+                    a(href="/blog", class="actual") blog    
+                  -else
+                    a(href="/blog") blog    
+                
+                  
+            #bottomMenu
+              ul
+                li(class='samsung')
+                  a(href='/samsungStv') samsungTv
+                li(class='html')
+                  a(href='/html5') html5
+                li(class='node')
+                  a(href='/node') node
+                li(class='angular')
+                  a(href='/angular') angular
+                
+                  
+          
+        block content
+        div.clearfix
+      #footer
+        #footerIn
+          #contactMeFooter
+              h3 Contact me
+              form(action="/contactForm", method="post", id="ctmainpage00")
+                input#cm0(type="text", name="name", value="Your name")
+                input#cm1(type="text", name="contact", value="contact to you (email or phone num.)")
+                textarea#cm2(name="content") demand or message
+                input(type="submit", value="Send")
+              #noteUnderFooter Everything on this page was created personally by my own effort. Please feel free to use anything that You find usefull. Do not hesitate to contact me with both proposals and questions. 
+              
+          #contactDetails
+            h3 Contact Details
+            h4 permanent abode
+            div(class="cdin") Petr Borák <br/> Zálesí 29<br/>790 70, Javorník ve Slezsku 
+            h4 temporary adress
+            div.cdin Petr Borák <br/>Mírová 26 <br/>602 00, Brno  
+            h4 Phone number
+            div.cdin +420 604 478 311              
+          
+          div#thirdFooter
+
+            a.links(href="skype:borak.petr3?call")            
+              img#linkSkype(src="/images/skypeLink.png")
+            script(type="text/javascript")
+              $("#linkSkype").bind("click",function(){
+                document.location = "skype:borak.petr3?call";
+              });
+            a.links(href="https://www.facebook.com/borak.petr?ref=tn_tnmn", target="_blank")
+              img#linkSkype(src="/images/facebookLink.png")
+            a.links(href="https://twitter.com/PetrBork", target="_blank")
+              img#linkSkype(src="/images/twitterLink.png")              
+            img(src="/images/borakFooter.png")
+            p.copyright &copy; 2013 Petr Borák 
+
+    script(type='text/javascript', src='/javascripts/angular.js')
+    script(type='text/javascript', src='/javascripts/angular-resource.js')
+    script(type='text/javascript', src='/javascripts/modules.js')
+    script(type='text/javascript', src='/javascripts/header.js')
+       
